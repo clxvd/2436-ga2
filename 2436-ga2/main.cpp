@@ -1,55 +1,51 @@
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-using namespace std;
-
-void Swap(int* a, int* b) {
-	int t = *a;
-	*a = *b;
-	*b = t;
-}
-
-void Kruskal(int** maze) {
-	cout << "Fix Kruskal" << endl;
-	//sort the weights from lowest to highest
-}
-
-void Prim(int** maze) {
-	cout << "fix Prim" << endl;
-}
-
+#include "maze.h"
 
 int main() {
 
-	ifstream fin("input1.txt");
+  ifstream fin("input1.txt");
 
-	int seedNum;
-	string method;
-	int count = 30;
+  int seedNum;
+  string method;
+  seedNum = 10; 
+  srand(seedNum);
+  method = "kruskal"; // "prim";
+  
+  Maze m;
+  m.Kruskal();
 
-	//fin >> seedNum >> method;
-	seedNum = 10; //comment out later
-	method = "kruskal"; // "prim";
 
-	srand(seedNum);
+  /*
+  int count = 5; //this will probably have to be cleaned up at the end. and added into the maze class
+  int vertexCount = count*count;
+  int setCount = 0;
 
-	int** maze = new int* [count];
+  queue<Vertex> frontierVertices; // would be used to check vertices next to the ones already added in maze
+  // fin >> seedNum >> method;
+        // comment out later
+  
 
-	for (int i = 0; i < count; ++i) {
-		maze[i] = new int[count];
-		for (int j = 0; j < count; ++j) {
-			maze[i][j] = rand();
-		}
-	}
+  Vertex **maze = new Vertex *[count];
+  for (int i = 0; i < count; ++i) {
+    maze[i] = new Vertex[count];
+    for(int j = 0; j < count; ++j) {
+      maze[i][j].name = setCount;
+      maze[i][j].x = i;
+      maze[i][j].y = j;
+      setCount++; 
+    }
+  }
 
-	for (int i = 0; i < count; ++i) {
-		for (int j = 0; j < count; ++j) {
-			cout << maze[i][j] << " ";
-		}
-		cout << endl;
-	}
+  
+  if (method == "kruskal") {
+    //Kruskal(count, maze, edges, setCount);
+    m.Kruskal();
+  }
+  
+  //m.PrintPrim(maze);
+  //m.Prim(maze, 0, 0);
+  //m.PrintPrim(maze);
+*/
 
-	if (method == "kruskal") {
-		
-	}
+
+  return 0;
 }
